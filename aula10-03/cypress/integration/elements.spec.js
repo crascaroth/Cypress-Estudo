@@ -1,8 +1,16 @@
 ///<reference types="cypress" />
 
+const { before } = require("cypress/types/lodash")
+
 describe('Work With Basic  Elements', () => {
+    before(()=> {
+        cy.visit("http://www.wcaquino.me/cypress/componentes.html")
+    })
+    beforeEach(()=>{
+        cy.reload()
+    })
     it('Text', () => {
-        cy.visit('http://www.wcaquino.me/cypress/componentes.html')
+        // cy.visit('http://www.wcaquino.me/cypress/componentes.html')
         cy.get('body').should('contain', 'Cuidado')
         cy.get('span').should('contain', 'Cuidado')
         cy.get('.facilAchar').should('contain', 'Cuidado')
@@ -10,7 +18,7 @@ describe('Work With Basic  Elements', () => {
     })
 
     it('Links', () => {
-        cy.visit('http://www.wcaquino.me/cypress/componentes.html')
+        // cy.visit('http://www.wcaquino.me/cypress/componentes.html')
         cy.get('[href="#"]').click()
         cy.get('#resultado').should('have.text', "Voltou!")
         
@@ -20,3 +28,4 @@ describe('Work With Basic  Elements', () => {
         cy.get('#resultado').should('have.text', "Voltou!")
     })
 })
+
