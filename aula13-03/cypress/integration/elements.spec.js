@@ -4,6 +4,8 @@ describe('section 03', () => {
     beforeEach(() =>{
         cy.visit('http://www.wcaquino.me/cypress/componentes.html')
     })
+
+    //Aula13
     it('Textfields', ()=> {
         cy.get('#formNome').type('Cypress Test');
 
@@ -17,5 +19,13 @@ describe('section 03', () => {
 
         cy.get('#elementosForm\\:sugestoes').clear().type('Erro{selectall}acerto', {delay:100}).should('have.value', 'acerto');
 
+    })
+
+    //Aula14
+
+    it('Radio button', () => {
+        cy.get('#formSexoFem').click().should('be.checked')
+        cy.get('#formSexoMasc').should('be.not.checked')
+        cy.get("[name='formSexo']").should('have.length', 2)
     })
 })
