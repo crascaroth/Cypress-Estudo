@@ -28,4 +28,9 @@ describe('section 03', () => {
         cy.get('#formSexoMasc').should('be.not.checked')
         cy.get("[name='formSexo']").should('have.length', 2)
     })
+
+    it('Checkbox', () => {
+        cy.get('#formComidaCarne').click().should('be.checked')
+        cy.get('[name=formComidaFavorita]').click({multiple: true})
+    })
 })
