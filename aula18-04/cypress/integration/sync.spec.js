@@ -18,5 +18,10 @@ describe('Waits ...', () => {
         cy.get('#novoCampo').type('funcional');
     })
 
+    it('Retries', () => {
+        cy.get('#buttonDelay').click();        
+        cy.get('#novoCampo').should('exist');
+       
+    })
 
 })
