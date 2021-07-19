@@ -54,4 +54,8 @@ describe("section 03", () => {
       .select("2graucomp")
       .should("have.value", "2graucomp");
   });
+
+  it('Multiple Combo', () => {
+    cy.get('[data-testid=dataEsportes]').select(['natacao', 'Corrida', 'nada'])
+  })
 });
