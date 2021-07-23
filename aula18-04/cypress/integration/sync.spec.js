@@ -48,7 +48,7 @@ describe('Waits ...', () => {
 
     //Aula 22
 
-    it.only('Should visit a page and assert title', () => {
+    it('Should visit a page and assert title', () => {
         cy.visit('http://www.wcaquino.me/cypress/componentes.html')
         cy.title().should('be.equal', 'Campo de Treinamento')
         cy.title().should('contain', 'Campo')
@@ -57,6 +57,16 @@ describe('Waits ...', () => {
         cy.title().should(title => {
             console.log(title)
         })
+    })
+
+    it.only('Should vs Then', () => {
+        // cy.get('#buttonListDOM').click()
+        cy.get("#buttonListDOM").then($el => {
+            console.log($el)
+            expect($el).to.have.length(1)
+            
+        }).and('have.id','buttonListDOM')
+        
     })
 
     
