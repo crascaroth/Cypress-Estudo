@@ -27,10 +27,37 @@ describe('Waits ...', () => {
     })
 
     //Aula 20
-    it.only('Find usage', () => {
+    it('Find usage', () => {
         cy.get('#buttonList').click()
         cy.get('#lista li').find('span').should('contain', 'Item 1')
         // cy.get('#lista li').find('span').should('contain', 'Item 2')
         cy.get('#lista li span').should('contain', 'Item 2')
     })
+
+    //Aula 21
+    it('Using Timeout', () => {
+        // cy.get('#buttonDelay').click()
+        // cy.get('#novoCampo').should('existe')
+        // cy.get('#buttonListDOM').click()
+        // cy.wait(5000)
+        // cy.get('#lista li span', {timeout:30000}).should('contain', 'Item 2')
+        
+        cy.get('#buttonListDOM').click()
+        cy.get('#lista li span', {timeout:30000}).should('have.length', 1)
+    })
+
+    //Aula 22
+
+    it.only('Should visit a page and assert title', () => {
+        cy.visit('http://www.wcaquino.me/cypress/componentes.html')
+        cy.title().should('be.equal', 'Campo de Treinamento')
+        cy.title().should('contain', 'Campo')
+        cy.title().should('be.equal', 'Campo de Treinamento').and('contain', 'Campo')
+
+        cy.title().should(title => {
+            console.log(title)
+        })
+    })
+
+    
 })
